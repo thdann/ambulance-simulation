@@ -1,6 +1,12 @@
 class Hospital:
     properties = {
         'id': int, 
-        'longitude': float,
-        'latitude': float
+        'latitude': float,
+        'longitude': float
     }
+
+    def __init__(self, id, latitude, longitude):
+        self.id=id
+        self.latitude = latitude
+        self.longitude = longitude
+        print("Hospital created: ID: " + str(self.id))

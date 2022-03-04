@@ -15,6 +15,7 @@ class EmergencyCall():
 
     def action(self):
         print("EmergencyCall.action()")
+
         # trigga ambulance to patient departure. Vad behöver vi då?
         # Är ambulance ledig? - skicka den. 
         # patienten (dess loaction iaf) hela objektet?
