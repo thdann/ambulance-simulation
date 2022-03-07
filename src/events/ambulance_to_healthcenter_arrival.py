@@ -1,8 +1,11 @@
-from abstract_event import AbstractEvent
 
-class AmbulanceToHealthCenter(AbstractEvent):
-    def __init__(self, event_time, ambulace):
-        super(AmbulanceToHealthCenter, self).__init__(event_time)
-        self.ambulance = ambulace
 
+class AmbulanceToHealthCenterArrival:
+
+    def __init__(self):
+        self.time = None  # Nån uträknad tid
+        print("init AmbulanceToHealthCenterArrival.")
+
+    def action(self): #TODO: Ska ha en patient troligtvis
+        print(self.__class__.__name__ + ":s actionmetod")
 
