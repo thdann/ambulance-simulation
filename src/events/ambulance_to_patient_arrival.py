@@ -1,23 +1,33 @@
-from src.events.ambulance_to_healthcenter_departure import AmbulanceToHealthCenterDeparture
-from src.events.ambulance_to_hospital_departure import AmbulanceToHospitalDeparture
+from random import randint
+from tkinter import EventType
+from events.ambulance_to_healthcenter_departure import AmbulanceToHealthCenterDeparture
+from events.ambulance_to_hospital_departure import AmbulanceToHospitalDeparture
 
 
 class AmbulanceToPatientArrival():
     properties = {
-        'time': float
+         'id': int,
+         'time': float
+     }
 
-    }
-
-    def __init__(self):
-        # self.time = patient.incident_time_hour # + tiden det tog för ambulansen att ta sig dit
+    def __init__(self, event_time, patient):
+        self.time = event_time + 00.15 # hur lång tid ambulansen tog att köra till patienten, ska räknas ut
+        self.patient = patient
         print("init AmbulanceToPatientArrival. ")
 
     def action(self):
-        print("action i " + self.__class__.__name__)
-        # patient.triage_priority = 1
-        # if patient.triage_priority < 3:
-        next_event = AmbulanceToHospitalDeparture()
-        next_event.action()
+        print("action i " + self.__class__.__name__ + "patient " + str(self.patient.id))
+
+        self.patient.triage_priority = randint(1,4)
+        print("PATIENT TRIAGE PRIO: " + str(self.patient.triage_priority)) ## 1&2 to hospital, 3&4 to healtcenter
+        
+        if self.patient.triage_priority < 3:
+            next_event = AmbulanceToHospitalDeparture(self.time, self.patient)
+        else: 
+            next_event = AmbulanceToHealthCenterDeparture(self.time, self.patient)
+        
+        return next_event
+        #next_event.action(patient)
 
 # else:
 #     next_event = AmbulanceToHealthCenterDeparture

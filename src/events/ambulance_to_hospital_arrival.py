@@ -1,18 +1,24 @@
+from tkinter import EventType
+import global_variables
+
 class AmbulanceToHospitalArrival:
     properties = {
-        'time': float,
-        'hospital_lat': float,
-        'hospital_long': float
-    }
+         'id': int,
+         'time': float
+     }
 
-    def __init__(self):
+    def __init__(self, event_time, patient):
         # Hämtar koordinater till helsingborgs sjukhus:
         # self.hospital_lat = hospital.latitude
         # self.hospital_long = hospital.longitude
         #
         # self.time = None  # Nån uträknad tid
+        self.time = event_time + 00.20 # tiden det tar att köra till sjukhuset, ska räknas ut. 
+        self.patient = patient
         print("init AmbulanceToHospitalDeparture.")
 
     def action(self):
-        print(self.__class__.__name__ + ":s actionmetod")
+        print(self.__class__.__name__ + ":s actionmetod och patient: " + str(self.patient.id))
+        print("End of chain")
+        global_variables.ambulance.is_available=True
         # ambulance.is_available = True

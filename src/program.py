@@ -1,21 +1,46 @@
-from ambulance import Ambulance
-from events.emergency_call import EmergencyCall
 from patient import Patient
-from hospital import Hospital
-from healtcenter import HealthCenter
-from events.ambulance_to_patient_departure import AmbulanceToPatientDeparture
-from src.events.ambulance_to_hospital_departure import AmbulanceToHospitalDeparture
-from src.events.ambulance_to_patient_arrival import AmbulanceToPatientArrival
-
+from events.emergency_call import EmergencyCall
+from events.eventlistheap import EventListHeap
 
 def main():
-    # Create a patient for test
-    patient = Patient(1, 56.25097, 13.21273, 13.00)
+    # Create a patient for test: id, latitude, longitude, time of incident
+    patient1 = Patient(1, 56.25097, 13.21273, 13.00)
+    patient2 = Patient(2, 56.30097, 13.21273, 14.00)
+    patient3 = Patient(3, 56.40097, 13.21273, 15.00)
 
-    # Create an emergency call with patient
-    emergency_call = EmergencyCall()  # Se till att generera riktiga ID senare
-    emergency_call.action()
+    # Create empty event list using heap data structure
+    #scheduled_events = EventListHeap(len(global_variables.problem_data.patients_list) * 2)
+    scheduled_events = EventListHeap(3 * 2)
+    
+    scheduled_events.add(EmergencyCall(patient1))
+    scheduled_events.add(EmergencyCall(patient2))
+    scheduled_events.add(EmergencyCall(patient3))
 
+    # Create an emergency call with patient - starts the chain of events. This should be a heap
+    #emergency_call = EmergencyCall(patient)  # Se till att generera riktiga ID senare
+    #emergency_call.action()
+
+
+    print('Before next event in framework.py')
+    next_event = scheduled_events.next()
+    print('After next_event, time in framework.py: ', next_event)
+
+    while next_event is not None:
+        # Write some code here
+        #global_variables.simulation_time = next_event.time
+
+        print('1: counter in while in framework.py')
+        new_event = next_event.action()
+        print('2')
+        if new_event:
+            scheduled_events.add(new_event)
+        print('3')
+        next_event = scheduled_events.next()
+        print('Next_event in framework.py: ', next_event)
+        print('4')
+
+    print('After while in framework.py')
+    #utils.safe_exit()
 
 
 main()

@@ -1,6 +1,6 @@
-from src.ambulance import Ambulance
-from src.healtcenter import HealthCenter
-from src.hospital import Hospital
+from ambulance import Ambulance
+from healtcenter import HealthCenter
+from hospital import Hospital
 
 global hospital
 hospital = Hospital(1, 12.703307, 56.0472377)
