@@ -13,8 +13,8 @@ class EventListHeap():
     def add(self, new_event):
         """ Input method description """
 
-        print('evenlistheap.py ==> class EventListHeap ==> def add')
-        print('evenlistheap.py new event: ', new_event)
+        # print('evenlistheap.py ==> class EventListHeap ==> def add')
+        # print('evenlistheap.py new event: ', new_event)
 
         self.list[self.num_items] = new_event
 
