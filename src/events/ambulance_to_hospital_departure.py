@@ -15,10 +15,11 @@ class AmbulanceToHospitalDeparture:
         # self.time = None #Nån uträknad tid
         self.time = event_time + 00.10
         self.patient = patient
-        print("init AmbulanceToHospitalDeparture.")
+        #print("init AmbulanceToHospitalDeparture.")
 
     def action(self):
-        print(self.__class__.__name__ + ":s actionmetod och patient: " + str(self.patient.id))
+        #print(self.__class__.__name__ + ":s actionmetod och patient: " + str(self.patient.id))
+        print(self.__class__.__name__ + " patient nr: " + str(self.patient.id) + " time: " + str(self.time))
         return AmbulanceToHospitalArrival(self.time, self.patient)
         #next_event = AmbulanceToHospitalArrival()
         #next_event.action(patient)

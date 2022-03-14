@@ -14,10 +14,11 @@ class AmbulanceToPatientDeparture:
         # self.patient_position_lat = patient.position_lat
         # self.patient_position_long = patient.position_long
         # ambulance.is_available = False
-        print("init AmbulanceToPatientDeparture. Patient and ambulance positions have been set.")
+        #print("init AmbulanceToPatientDeparture. Patient and ambulance positions have been set.")
 
     def action(self):
-        print(self.__class__.__name__ + ":s actionmetod och patient: " + str(self.patient.id))
+        #print(self.__class__.__name__ + ":s actionmetod och patient: " + str(self.patient.id))
+        print(self.__class__.__name__ + " patient nr: " + str(self.patient.id)+ " time: " + str(self.time))
         return AmbulanceToPatientArrival(self.time, self.patient)
         
         #next_event = AmbulanceToPatientArrival()

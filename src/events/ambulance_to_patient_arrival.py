@@ -11,12 +11,13 @@ class AmbulanceToPatientArrival():
      }
 
     def __init__(self, event_time, patient):
-        self.time = event_time + 00.15 # hur lång tid ambulansen tog att köra till patienten, ska räknas ut
+        self.time = event_time + 0.15 # hur lång tid ambulansen tog att köra till patienten, ska räknas ut
         self.patient = patient
-        print("init AmbulanceToPatientArrival. ")
+        #print("init AmbulanceToPatientArrival. ")
 
     def action(self):
-        print("action i " + self.__class__.__name__ + "patient " + str(self.patient.id))
+        #print("action i " + self.__class__.__name__ + "patient " + str(self.patient.id))
+        print(self.__class__.__name__ + " patient nr: " + str(self.patient.id) + " time: " + str(self.time))
 
         self.patient.triage_priority = randint(1,4)
         print("PATIENT TRIAGE PRIO: " + str(self.patient.triage_priority)) ## 1&2 to hospital, 3&4 to healtcenter

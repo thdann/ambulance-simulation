@@ -2,6 +2,8 @@ from ambulance import Ambulance
 from healtcenter import HealthCenter
 from hospital import Hospital
 
+print("***************************** Global variables ****************************")
+
 global hospital
 hospital = Hospital(1, 12.703307, 56.0472377)
 

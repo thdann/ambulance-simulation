@@ -8,7 +8,7 @@ class EmergencyCall():
      }
 
     def __init__(self, patient):
-        print("init(EmergencyCall())")
+        #print("init(EmergencyCall())")
         self.patient = patient
         self.time = patient.incident_time_hour
         # self.id = new_id
@@ -16,7 +16,8 @@ class EmergencyCall():
         # print("EmergencyCall created " + str(self.id) + "with patient: " + str(self.patient))
 
     def action(self):
-        print("EmergencyCall.action() och patient nr: " + str(self.patient.id))
+        #print("EmergencyCall.action() patient nr: " + str(self.patient.id))
+        print(self.__class__.__name__ + " patient nr: " + str(self.patient.id) + " time: " + str(self.time))
 
         if global_variables.ambulance.is_available:
             global_variables.ambulance.is_available=False
