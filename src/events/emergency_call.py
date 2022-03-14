@@ -30,3 +30,5 @@ class EmergencyCall():
 
     # trigga ambulance to patient departure. Vad behöver vi då?
     # Är ambulance ledig? - skicka den.
+def print_start_time():
+    print(self.time)

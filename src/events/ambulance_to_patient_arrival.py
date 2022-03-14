@@ -3,6 +3,8 @@ from tkinter import EventType
 from events.ambulance_to_healthcenter_departure import AmbulanceToHealthCenterDeparture
 from events.ambulance_to_hospital_departure import AmbulanceToHospitalDeparture
 
+from src.global_variables import add_to_time
+
 
 class AmbulanceToPatientArrival():
     properties = {
@@ -12,6 +14,8 @@ class AmbulanceToPatientArrival():
 
     def __init__(self, event_time, patient):
         self.time = event_time + 0.15 # hur lång tid ambulansen tog att köra till patienten, ska räknas ut
+        # self.time = event_time + 00.15 # hur lång tid ambulansen tog att köra till patienten, ska räknas ut
+        self.time = add_to_time(event_time, 0.15)
         self.patient = patient
         #print("init AmbulanceToPatientArrival. ")
 
