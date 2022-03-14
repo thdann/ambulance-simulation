@@ -1,6 +1,8 @@
 from patient import Patient
 from events.emergency_call import EmergencyCall
 from events.eventlistheap import EventListHeap
+from random import randint
+
 
 def main():
     # Create a patient for test: id, latitude, longitude, time of incident
@@ -14,9 +16,9 @@ def main():
     #scheduled_events = EventListHeap(len(global_variables.problem_data.patients_list) * 2)
     scheduled_events = EventListHeap(3 * 2)
     
-    scheduled_events.add(EmergencyCall(patient1))
-    scheduled_events.add(EmergencyCall(patient2))
-    scheduled_events.add(EmergencyCall(patient3))
+    scheduled_events.add(EmergencyCall(patient1, 12.0))
+    scheduled_events.add(EmergencyCall(patient2, 14.0))
+    scheduled_events.add(EmergencyCall(patient3, 16.0))
 
   
 
@@ -43,7 +45,7 @@ def main():
         #print('Next_event in framework.py: ', next_event)
         #print('4')
 
-    print('After while in framework.py')
+    # print('After while in framework.py')
     #utils.safe_exit()
 
 

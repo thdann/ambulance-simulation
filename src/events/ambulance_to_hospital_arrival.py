@@ -13,7 +13,6 @@ class AmbulanceToHospitalArrival:
         # self.hospital_long = hospital.longitude
         #
         # self.time = None  # Nån uträknad tid
-        self.time = event_time + 00.20 # tiden det tar att köra till sjukhuset, ska räknas ut. 
         self.patient = patient
         #print("init AmbulanceToHospitalDeparture.")
 

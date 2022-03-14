@@ -10,7 +10,7 @@ class EmergencyCall():
     def __init__(self, patient):
         #print("init(EmergencyCall())")
         self.patient = patient
-        self.time = patient.incident_time_hour
+        self.time = event_time
         # self.id = new_id
         # self.time = patient.incident_time_hour
         # print("EmergencyCall created " + str(self.id) + "with patient: " + str(self.patient))
