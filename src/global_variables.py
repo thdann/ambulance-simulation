@@ -1,6 +1,7 @@
 from ambulance import Ambulance
 from healtcenter import HealthCenter
 from hospital import Hospital
+from src.simulation_clock import SimulationClock
 
 print("***************************** Global variables ****************************")
 
@@ -21,12 +22,7 @@ for line in file:
     elements = line.split(",")
     hospital_to_centroid_list.append(elements)
 
+global simulation_clock
+simulation_clock = SimulationClock()
 
-def add_to_time(current_time_hours, current_time_minutes, time_to_add):
-    new_time = current_time_minutes + time_to_add
-    decimals = str(new_time).split('.')[1]
-    if int(decimals) > 59:
-        new_time = new_time + 0.40
-    print("--------- RETURNING: " + str(new_time))
-    return float("{:.2f}".format(new_time))
 

@@ -3,8 +3,12 @@ from events.emergency_call import EmergencyCall
 from events.eventlistheap import EventListHeap
 from random import randint
 
+from src.simulation_clock import SimulationClock
+
 
 def main():
+    clock = SimulationClock()
+    print(clock.print_current_time())
     # Create a patient for test: id, latitude, longitude, time of incident
     print("*****************************************************************************")
     patient1 = Patient(1, 56.25097, 13.21273, 13.00)
@@ -16,9 +20,9 @@ def main():
     #scheduled_events = EventListHeap(len(global_variables.problem_data.patients_list) * 2)
     scheduled_events = EventListHeap(3 * 2)
     
-    scheduled_events.add(EmergencyCall(patient1, 12.0))
-    scheduled_events.add(EmergencyCall(patient2, 14.0))
-    scheduled_events.add(EmergencyCall(patient3, 16.0))
+    scheduled_events.add(EmergencyCall(patient1, 0, 11, 25))
+    # scheduled_events.add(EmergencyCall(patient2, 14.0))
+    # scheduled_events.add(EmergencyCall(patient3, 16.0))
 
   
 

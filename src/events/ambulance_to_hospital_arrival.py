@@ -1,25 +1,22 @@
-from tkinter import EventType
 import global_variables
+
 
 class AmbulanceToHospitalArrival:
     properties = {
-         'id': int,
-         'time': float
-     }
+        'id': int,
+        'time': float,
+        'time_hour': int,  # dessa två ints är ett tänkbart sätt att hantera tiden. Vågar inte göra det i nuläget
+        'time_minute': int  # pga omfattande och vill vänta till efter mötet med Johan
+
+    }
 
     def __init__(self, event_time, patient):
-        # Hämtar koordinater till helsingborgs sjukhus:
-        # self.hospital_lat = hospital.latitude
-        # self.hospital_long = hospital.longitude
-        #
-        # self.time = None  # Nån uträknad tid
+        self.time = event_time  # Nån uträknad tid
         self.patient = patient
-        #print("init AmbulanceToHospitalDeparture.")
 
     def action(self):
-        #print(self.__class__.__name__ + ":s actionmetod och patient: " + str(self.patient.id))
         print(self.__class__.__name__ + " patient nr: " + str(self.patient.id) + " time: " + str(self.time))
-        print("End of chain. Total time: ")
+        global_variables.simulation_clock.add_to_time(self.time)
+        global_variables.ambulance.is_available = True
+        print("end of chain")
         print("\n")
-        global_variables.ambulance.is_available=True
-        # ambulance.is_available = True
