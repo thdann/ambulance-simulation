@@ -1,11 +1,10 @@
 from events.ambulance_to_patient_departure import AmbulanceToPatientDeparture
 import global_variables
 
-
 class EmergencyCall:
     properties = {
         'id': int,
-        'time': float,
+        'time': float, #11,25
         'event_time': []
     }
 
@@ -16,8 +15,6 @@ class EmergencyCall:
         self.event_time.append(day)
         self.event_time.append(hour)
         self.event_time.append(minute)
-        global_variables.simulation_clock.set_start_time(day, hour, minute) # Sätter starttid i klockan.
-
 
     def action(self):
         print(self.__class__.__name__ + " patient nr: " + str(self.patient.id) + " time: " + str(self.time))

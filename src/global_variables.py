@@ -1,7 +1,7 @@
 from ambulance import Ambulance
 from healtcenter import HealthCenter
 from hospital import Hospital
-from src.simulation_clock import SimulationClock
+from simulation_clock import SimulationClock
 
 print("***************************** Global variables ****************************")
 
@@ -15,12 +15,12 @@ global ambulance
 # Create an ambulance is available
 ambulance = Ambulance(1, True, health_center.latitude, health_center.longitude)
 
-global hospital_to_centroid_list
-hospital_to_centroid_list = []
-file = open("files/hospital2centroids.txt", "r")
-for line in file:
-    elements = line.split(",")
-    hospital_to_centroid_list.append(elements)
+# global hospital_to_centroid_list
+# hospital_to_centroid_list = []
+# file = open("files/hospital2centroids.txt", "r")
+# for line in file:
+#     elements = line.split(",")
+#     hospital_to_centroid_list.append(elements)
 
 global simulation_clock
 simulation_clock = SimulationClock()

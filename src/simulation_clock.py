@@ -17,12 +17,13 @@ class SimulationClock:
         self.day = day
         self.hour = time_hour
         self.minute = time_minute
-
+        print("Simulation clock set_start_time()")
         self.print_current_time()
 
-    def add_to_time(self, total_time):  # total time är en float
+    def set_stop_time(self, total_time):  # total time är en float, den totala tiden för en kedja
         time_in_minutes = int(total_time * 60)
         self.set_clock(time_in_minutes)
+        print("Simulation clock add_to_time() - är detta sluttiden?")
         self.print_current_time()
 
     def set_clock(self, minutes_to_add):

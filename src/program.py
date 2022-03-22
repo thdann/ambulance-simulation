@@ -3,7 +3,7 @@ from events.emergency_call import EmergencyCall
 from events.eventlistheap import EventListHeap
 from random import randint
 
-from src.simulation_clock import SimulationClock
+from simulation_clock import SimulationClock
 
 
 def main():
@@ -21,8 +21,8 @@ def main():
     scheduled_events = EventListHeap(3 * 2)
     
     scheduled_events.add(EmergencyCall(patient1, 0, 11, 25))
-    # scheduled_events.add(EmergencyCall(patient2, 14.0))
-    # scheduled_events.add(EmergencyCall(patient3, 16.0))
+    scheduled_events.add(EmergencyCall(patient2, 0, 14, 0))
+    #scheduled_events.add(EmergencyCall(patient3, 0, 16, 00))
 
   
 
@@ -46,7 +46,7 @@ def main():
             scheduled_events.add(new_event)
         #print('3')
         next_event = scheduled_events.next()
-        #print('Next_event in framework.py: ', next_event)
+        print('Next_event in framework.py: ', next_event)
         #print('4')
 
     # print('After while in framework.py')
