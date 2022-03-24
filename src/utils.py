@@ -1,6 +1,7 @@
 # global hospital_to_centroid_list
 
 
+
 def get_transport_time(centroid):
     print("centroid: " + str(centroid))
     file = open("files/hospital2centroids.txt", "r")
@@ -12,5 +13,7 @@ def get_transport_time(centroid):
             return float(elements[3])
 
         # hospital_to_centroid_list.append(elements)
+
+
 
 
