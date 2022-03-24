@@ -1,6 +1,6 @@
 from events.ambulance_to_hospital_arrival import AmbulanceToHospitalArrival
 
-from src import global_variables
+from src import global_variables, utils
 
 
 class AmbulanceToHospitalDeparture:
@@ -17,7 +17,16 @@ class AmbulanceToHospitalDeparture:
         # Transporteringstid (hämtas från Johans data):
         print(self.__class__.__name__ + " patient nr: " + str(self.patient.id) + " time: " + str(self.time))
         global_variables.simulation_clock.update_time(self.time)
-        transport_time = global_variables.simulation_clock.calculate_time(30) # Tar en halvtimme säger vi
+
+        # Hämta patientens centroid
+        # Leta upp den raden i centroid_list i global_variables
+        # Hämta körtid från samma rad
+        transport_time_from_file = utils.get_transport_time(self.patient.centroid)
+        transport_time_as_minutes = global_variables.simulation_clock.calculate_transport_time(transport_time_from_file)
+        print("transport time as minutes: " + str(transport_time_as_minutes))
+        transport_time = global_variables.simulation_clock.calculate_time(transport_time_as_minutes)
+
+        print("transport time: " + str(transport_time))
         print("--- hospital departure 1")
         global_variables.simulation_clock.print_current_time_as_time_stamp()
         print("--- hospital departure 2")

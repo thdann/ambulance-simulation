@@ -8,9 +8,8 @@ def get_transport_time(centroid):
     for line in file:
         elements = line.split(",")
         centroid_id = int(elements[2])
-        print("centroid ID: " + str(centroid_id))
         if centroid_id - centroid == 0:
-            return elements[3]
+            return float(elements[3])
 
         # hospital_to_centroid_list.append(elements)
 

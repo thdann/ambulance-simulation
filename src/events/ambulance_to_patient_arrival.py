@@ -30,12 +30,6 @@ class AmbulanceToPatientArrival():
         if self.patient.triage_priority < 3:
             # print("Ambulance to patient arrival")
 
-            # Hämta patientens centroid
-            # Leta upp den raden i centroid_list i global_variables
-            # Hämta körtid från samma rad
-
-
-
             next_event = AmbulanceToHospitalDeparture(self.time + treatment_time, self.patient)
         else:
             next_event = AmbulanceToHealthCenterDeparture(self.time + treatment_time, self.patient)

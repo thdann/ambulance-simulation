@@ -44,6 +44,9 @@ class SimulationClock:
         # print(self.minute)
         print("Day: %d. Time: %02d.%02d" % (day, hours, minutes))
 
+    def calculate_transport_time(self, transport_time):
+        return transport_time * 60
+
 
 
 

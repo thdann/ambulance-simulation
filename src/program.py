@@ -9,9 +9,9 @@ from simulation_clock import SimulationClock
 def main():
     # Create a patient for test: id, latitude, longitude, time of incident
     print("*****************************************************************************")
-    patient1 = Patient(1, 1430)
+    patient1 = Patient(1, 14)
     patient2 = Patient(2, 3410)
-    patient3 = Patient(3, 4100)
+    patient3 = Patient(3, 18543)
     print("*****************************************************************************")
 
     # Create empty event list using heap data structure
