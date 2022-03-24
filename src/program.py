@@ -7,22 +7,20 @@ from simulation_clock import SimulationClock
 
 
 def main():
-    clock = SimulationClock()
-    print(clock.print_current_time())
     # Create a patient for test: id, latitude, longitude, time of incident
     print("*****************************************************************************")
-    patient1 = Patient(1, 56.25097, 13.21273, 13.00)
-    patient2 = Patient(2, 56.30097, 13.21273, 14.00)
-    patient3 = Patient(3, 56.40097, 13.21273, 15.00)
+    patient1 = Patient(1, 1430)
+    patient2 = Patient(2, 3410)
+    patient3 = Patient(3, 4100)
     print("*****************************************************************************")
 
     # Create empty event list using heap data structure
     #scheduled_events = EventListHeap(len(global_variables.problem_data.patients_list) * 2)
     scheduled_events = EventListHeap(3 * 2)
     
-    scheduled_events.add(EmergencyCall(patient1, 0, 11, 25))
-    scheduled_events.add(EmergencyCall(patient2, 0, 14, 0))
-    #scheduled_events.add(EmergencyCall(patient3, 0, 16, 00))
+    scheduled_events.add(EmergencyCall(patient1, 0.0))
+    scheduled_events.add(EmergencyCall(patient2, 1.0))
+    scheduled_events.add(EmergencyCall(patient3, 2.0))
 
   
 
