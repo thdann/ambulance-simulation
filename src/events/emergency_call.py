@@ -9,19 +9,19 @@ class EmergencyCall:
         'event_time': []
     }
 
-    def __init__(self, patient, day, hour, minute):
+    def __init__(self, patient, time):
         self.event_time = []
         self.patient = patient
-        self.time = 0.05 # 3/60 för att räkna ut 3 minuter i decimalform. TODO: Ta fram riktigt medelvärde
-        self.event_time.append(day)
-        self.event_time.append(hour)
-        self.event_time.append(minute)
-        global_variables.simulation_clock.set_start_time(day, hour, minute) # Sätter starttid i klockan.
+        self.time = time  # 3/60 för att räkna ut 3 minuter i decimalform. TODO: Ta fram riktigt medelvärde
 
 
     def action(self):
         print(self.__class__.__name__ + " patient nr: " + str(self.patient.id) + " time: " + str(self.time))
         if global_variables.ambulance.is_available:
-            global_variables.simulation_clock.set_start_time(self.event_time[0], self.event_time[1], self.event_time[2])
+            print("Ambulance available!")
+            global_variables.simulation_clock.set_start_time(self.time)
+            global_variables.simulation_clock.print_current_time_as_time_stamp()
+            time_from_call_to_ambulance_departure = global_variables.simulation_clock.calculate_time(3)  # Tre minuter. Räknas ut som andel av ett dygn i calculate_time
             global_variables.ambulance.is_available = False
-            return AmbulanceToPatientDeparture(self.time, self.patient)
+            print("Emergency call.")
+            return AmbulanceToPatientDeparture(self.time + time_from_call_to_ambulance_departure, self.patient)
