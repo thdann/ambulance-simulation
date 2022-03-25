@@ -17,8 +17,8 @@ class AmbulanceToPatientArrival():
 
     def action(self):
         # print(self.__class__.__name__ + " patient nr: " + str(self.patient.id) + " time: " + str(self.time))
-        # Vårdtid (ska räknas ut eller tas ett genomsnitt):
-        treatment_time = global_variables.simulation_clock.calculate_time(30)  # 18 minuter
+        # TODO: Vårdtid (ska räknas ut eller tas ett genomsnitt):
+        treatment_time = global_variables.simulation_clock.calculate_time(30)
         global_variables.simulation_clock.update_time(self.time)
         global_variables.simulation_clock.print_current_time_as_time_stamp()
 

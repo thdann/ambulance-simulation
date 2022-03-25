@@ -18,8 +18,6 @@ class AmbulanceToHospitalArrival:
         global_variables.simulation_clock.update_time(self.time)
         time_to_drop_off_patient = global_variables.simulation_clock.calculate_time(5)  # Fem minuter för avlämning
         global_variables.simulation_clock.print_current_time_as_time_stamp()
-        # global_variables.ambulance.is_available = True
-        # global_variables.simulation_clock.set_stop_time(self.time)
 
         return AmbulanceBackToSiteDeparture(self.time + time_to_drop_off_patient, self.patient)
 
