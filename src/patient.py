@@ -12,7 +12,7 @@ class Patient:
         self.triage_priority = None
         self.id = id
         self.centroid = centroid
-        print("Patient created: " + str(self.id) + ", centroid index: " + str(self.centroid))
+        # print("Patient created: " + str(self.id) + ", centroid index: " + str(self.centroid))
 
         #self.incident_time_day = 0 #vad är detta?
         #self.triage_priority = 3 #3 = gul, ska sättas vid senare tillfälle

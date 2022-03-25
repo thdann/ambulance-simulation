@@ -18,15 +18,15 @@ class SimulationClock:
         self.hour = 1  # None
         self.minute = 1  # None
 
-    def calculate_time(self, time):  # TODO: Ska räkna om time till dagar, timmar och minuter
+    def calculate_time(self, time):
         # self.print_current_time_as_time_stamp()
         return float(time / 1440)
 
-    def set_start_time(self, time):
+    def set_start_time(self, time): # Den här metoden är exakt samma som update_time,
+                                    # men jag sparar den pga kan vara bra att ha
+                                    # om vi vill spara start_time specifikt för jämförelse
         self.time = time
-        print("Simulation clock set_start_time()")
-        print("Set start time: ")
-        self.print_current_time_as_time_stamp()
+        # self.print_current_time_as_time_stamp()
 
     def update_time(self, time):
         self.time = time

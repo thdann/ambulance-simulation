@@ -3,7 +3,7 @@
 
 
 def get_transport_time(centroid):
-    print("centroid: " + str(centroid))
+    # print("centroid: " + str(centroid))
     file = open("files/hospital2centroids.txt", "r")
     next(file)
     for line in file:

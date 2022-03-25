@@ -15,12 +15,17 @@ class EmergencyCall:
 
 
     def action(self):
-        print(self.__class__.__name__ + " patient nr: " + str(self.patient.id) + " time: " + str(self.time))
+        # print(self.__class__.__name__ + " for patient no: " + str(self.patient.id) + ". ")
         if global_variables.ambulance.is_available:
-            print("Ambulance available!")
+            print("******************** NEW EMERGENCY CALL ********************")
             global_variables.simulation_clock.set_start_time(self.time)
             global_variables.simulation_clock.print_current_time_as_time_stamp()
             time_from_call_to_ambulance_departure = global_variables.simulation_clock.calculate_time(3)  # Tre minuter. Räknas ut som andel av ett dygn i calculate_time
             global_variables.ambulance.is_available = False
-            print("Emergency call.")
+
             return AmbulanceToPatientDeparture(self.time + time_from_call_to_ambulance_departure, self.patient)
+        else:
+            print("~~~~~~~~~~~~~~~~~ NEW EMERGENCY CALL QUEUED ~~~~~~~~~~~~~~~~~")
+            time_to_add = global_variables.simulation_clock.calculate_time(10)
+            self.time += time_to_add
+            return self
