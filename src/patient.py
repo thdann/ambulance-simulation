@@ -1,15 +1,16 @@
+import string
 from json import load
 
 
 class Patient: 
     properties = {
         'id': int,
-        'triage_priority': int,
+        'triage_priority': string,
         'centroid': int
     }
 
-    def __init__(self, id, centroid):
-        self.triage_priority = None
+    def __init__(self, id, centroid, triage_priority):
+        self.triage_priority = triage_priority
         self.id = id
         self.centroid = centroid
         # print("Patient created: " + str(self.id) + ", centroid index: " + str(self.centroid))

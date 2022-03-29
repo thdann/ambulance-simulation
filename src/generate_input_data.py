@@ -1,4 +1,5 @@
 import json
+import random
 from dataclasses import replace
 from os.path import dirname, join
 from datetime import date
@@ -10,6 +11,7 @@ current_directory = dirname(__file__)
 filepath_incoming_calls = join(current_directory, "files/incoming_calls.txt")
 filepath_population = join(current_directory, "files/population.txt")
 filepath_input_data = join(current_directory, "files/input_data.txt")
+filepath_input_data_2 = join(current_directory, "files/input_data_2.txt")
 
 
 # Metoder för att generera vilken centroid samtalet kommer ifrån:
@@ -91,9 +93,43 @@ def main():
     file.close()
 
 
+def get_color():
+    triage_colors = ["red_or_orange", "yellow_or_green"]
+    weights = [513, 782]
+    return choices(triage_colors, weights)[0]
+
+
+def generate_triage_priority():
+    old_data = open(filepath_input_data, "r")
+    new_data = open(filepath_input_data_2, "a")
+    for line in old_data:
+        remove_new_line = line.strip("\n")
+        new_data.write(remove_new_line + " " + str(get_color()) + "\n")
+
+
+def test_random_color():
+    data = open(filepath_input_data_2, "r")
+    red_or_orange = 0
+    yellow_or_green = 0
+    for line in data:
+        elements = line.split(" ")
+        color = elements[2].strip("\n")
+        if color == "yellow_or_green":
+            yellow_or_green += 1
+        elif color == "red_or_orange":
+            red_or_orange += 1
+
+    yog = float(yellow_or_green) / 9.35
+    roo = float(red_or_orange) / 9.35
+
+    print("Yellow or green: %2f%s" % (yog, "%"))
+    print("Red or orange: %2f%s" % (roo, "%"))
+
+
+test_random_color()
+
 # main()
-
-
+# generate_triage_priority()
 
 # print(get_random_centroid(centroids, population))
 

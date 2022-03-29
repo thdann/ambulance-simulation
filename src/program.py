@@ -11,11 +11,11 @@ from src import global_variables
 
 def main():
     # Create a patient for test: id, latitude, longitude, time of incident
-    print("*****************************************************************************")
-    patient1 = Patient(1, 14)
-    patient2 = Patient(2, 3410)
-    patient3 = Patient(3, 18543)
-    print("*****************************************************************************")
+    # print("*****************************************************************************")
+    # patient1 = Patient(1, 14)
+    # patient2 = Patient(2, 3410)
+    # patient3 = Patient(3, 18543)
+    # print("*****************************************************************************")
 
     # Create empty event list using heap data structure
     # scheduled_events = EventListHeap(len(global_variables.problem_data.patients_list) * 2)
@@ -27,7 +27,8 @@ def main():
     # Därefter lägg till emergency call i scheduled_events
 
     current_directory = dirname(__file__)
-    filepath_input_data = join(current_directory, "files/input_data.txt")
+    filepath_input_data = join(current_directory,
+                               "files/input_data.txt")  # TODO OBS! När körtiden för vårdcentral finns ska detta vara input_data_2.txt istället!
 
     file = open(filepath_input_data, "r")
     counter = 1
@@ -35,7 +36,9 @@ def main():
         elements = line.split(" ")
         time = float(elements[0])
         centroid = int(elements[1])
-        emergency_call = EmergencyCall(Patient(counter, centroid), time)
+        # triage_priority = elements[2].strip("\n")  # Osäker på om ny rad behöver tas bort men det känns troligt
+        # emergency_call = EmergencyCall(Patient(counter, centroid, triage_priority), time) # TODO: Avmarkera dessa två rader
+        emergency_call = EmergencyCall(Patient(counter, centroid, "red_or_orange"), time)
         scheduled_events.add(emergency_call)
         counter += 1
 
@@ -70,4 +73,3 @@ def main():
 
 
 main()
-

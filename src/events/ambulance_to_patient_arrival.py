@@ -22,6 +22,17 @@ class AmbulanceToPatientArrival():
         global_variables.simulation_clock.update_time(self.time)
         global_variables.simulation_clock.print_current_time_as_time_stamp()
 
+
+        #TODO: Här under är kod som ska avändas när körtider till vårdcentralen är implementerade:
+
+        """ 
+        if self.patient.triage_priority == "yellow_or_green":
+            next_event = AmbulanceToHealthCenterDeparture(self.time + treatment_time, self.patient)
+        elif self.patient.triage_priority == "red_or_orange":
+            next_event = AmbulanceToHospitalDeparture(self.time + treatment_time, self.patient)
+        """
+
+        #TODO: Den här implementationen av triage_priority ska plockas bort:
         self.patient.triage_priority = randint(1, 2)
         # print("PATIENT TRIAGE PRIO: " + str(self.patient.triage_priority))  ## 1&2 to hospital, 3&4 to healtcenter
 
