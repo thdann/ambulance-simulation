@@ -36,6 +36,13 @@ class AmbulanceToPatientArrival():
         self.patient.triage_priority = randint(1, 2)
         # print("PATIENT TRIAGE PRIO: " + str(self.patient.triage_priority))  ## 1&2 to hospital, 3&4 to healtcenter
 
+        # TODO: Här borde vi också ta ställning till de emergency calls som inte leder till
+        #  transport av patienten. DÅ måste vi först uppdatera SOS-datan så den inkluderar dessa fall och kanske ha
+        #  en variabel i patiente-objektet som säger om patienten behvöver transport eller inte.
+        #  Det blir ju typ if (!needs_transport) { next_event = AmbulanceBackToSite() }
+
+        #TODO: Vi behöver också ta hänsyn till öppettider! Vi måste också veta om det är vardag eller helgdag
+
         if self.patient.triage_priority < 3:
             # print("Ambulance to patient arrival")
 
