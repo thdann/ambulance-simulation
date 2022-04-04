@@ -70,6 +70,8 @@ def main():
 
     # print('After while in framework.py')
     # utils.safe_exit()
+    print("health center: " + str(global_variables.nbr_of_patients_to_health_center))
+    print("hospital: " + str(global_variables.nbr_of_patients_to_hospital))
 
 
 main()

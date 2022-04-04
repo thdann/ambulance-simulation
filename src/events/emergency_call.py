@@ -24,6 +24,10 @@ class EmergencyCall:
                 3)  # Tre minuter. Räknas ut som andel av ett dygn i calculate_time
             global_variables.ambulance.is_available = False
 
+            # Writing to output file:
+            global_variables.simulation_clock.write_patient_id_to_file(self.patient)
+            global_variables.simulation_clock.write_time_stamp_to_file()
+
             return AmbulanceToPatientDeparture(self.time + time_from_call_to_ambulance_departure, self.patient)
 
         # Om ambulansen inte är ledig kommer detta event (emergency call) att returneras och hamna överst i heapen.

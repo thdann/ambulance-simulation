@@ -16,4 +16,7 @@ class AmbulanceBackToSiteArrival:
         global_variables.simulation_clock.print_current_time_as_time_stamp()
         global_variables.ambulance.is_available = True
 
+        global_variables.simulation_clock.write_time_stamp_to_file()
+        global_variables.simulation_clock.write_new_line()
+
         print("\n")

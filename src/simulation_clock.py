@@ -1,4 +1,5 @@
 import math
+from os.path import dirname, join
 
 
 class SimulationClock:
@@ -52,6 +53,43 @@ class SimulationClock:
         new_time_array = math.modf(hours)
         minutes = new_time_array[0] * 60
         print("Day: %d. Time: %02d.%02d" % (day, hours, minutes))
+
+    def write_time_stamp_to_file(self):
+        time_array = math.modf(self.time)
+        day = int(time_array[1])
+
+        #  Konvertering:
+        hours = time_array[0] * 24
+
+        # print("HOURS: " + str(hours))
+        new_time_array = math.modf(hours)
+        minutes = new_time_array[0] * 60
+        current_directory = dirname(__file__)
+        filepath_population = join(current_directory, "files/result_both_destinations.txt")
+        file = open(filepath_population, "a")
+        file.write(" %d %02d:%02d" % (day, hours, minutes))
+        file.close()
+
+    def write_patient_id_to_file(self, patient):
+        current_directory = dirname(__file__)
+        filepath_population = join(current_directory, "files/result_both_destinations.txt")
+        file = open(filepath_population, "a")
+        file.write(str(patient.id))
+        file.close()
+
+    def write_hospital_of_health_center_to_file(self, destination):
+        current_directory = dirname(__file__)
+        filepath_population = join(current_directory, "files/result_both_destinations.txt")
+        file = open(filepath_population, "a")
+        file.write(" " + destination)
+        file.close()
+
+    def write_new_line(self):
+        current_directory = dirname(__file__)
+        filepath_population = join(current_directory, "files/result_both_destinations.txt")
+        file = open(filepath_population, "a")
+        file.write("\n")
+        file.close()
 
     def calculate_transport_time(self, transport_time):
         return transport_time * 60
