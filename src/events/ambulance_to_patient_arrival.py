@@ -27,5 +27,7 @@ class AmbulanceToPatientArrival():
             global_variables.nbr_of_patients_to_health_center += 1
         else:
             next_event = AmbulanceToHospitalDeparture(self.time + treatment_time, self.patient)
+            global_variables.nbr_of_patients_to_hospital += 1
+
 
         return next_event
