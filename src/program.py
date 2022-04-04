@@ -28,17 +28,17 @@ def main():
 
     current_directory = dirname(__file__)
     filepath_input_data = join(current_directory,
-                               "files/input_data.txt")  # TODO OBS! När körtiden för vårdcentral finns ska detta vara input_data_2.txt istället!
+                               "files/input_data_2.txt")
 
     file = open(filepath_input_data, "r")
     counter = 1
+
     for line in file:
         elements = line.split(" ")
         time = float(elements[0])
         centroid = int(elements[1])
-        # triage_priority = elements[2].strip("\n")  # Osäker på om ny rad behöver tas bort men det känns troligt
-        # emergency_call = EmergencyCall(Patient(counter, centroid, triage_priority), time) # TODO: Avmarkera dessa två rader
-        emergency_call = EmergencyCall(Patient(counter, centroid, "red_or_orange"), time)
+        triage_priority = elements[2].strip("\n")  # Osäker på om ny rad behöver tas bort men det känns troligt
+        emergency_call = EmergencyCall(Patient(counter, centroid, triage_priority), time)
         scheduled_events.add(emergency_call)
         counter += 1
 

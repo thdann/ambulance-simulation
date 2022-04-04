@@ -14,4 +14,6 @@ simulation_clock = SimulationClock()
 # global waiting_queue
 waiting_queue = WaitingQueue()
 
+nbr_of_patients_to_health_center = 0
 
+nbr_of_patients_to_hospital = 0

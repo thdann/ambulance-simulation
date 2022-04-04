@@ -13,8 +13,9 @@ class AmbulanceToHealthCenterArrival():
         self.patient = patient
 
     def action(self):
-        print(self.__class__.__name__ + " patient nr: " + str(self.patient.id) + " time: " + str(self.time))
-        # global_variables.simulation_clock.add_to_time(self.time)
+        global_variables.simulation_clock.update_time(self.time)
+        time_to_drop_off_patient = global_variables.simulation_clock.calculate_time(5)  # Fem minuter för avlämning #TODO: Hantera detta? Eftersom detta är sista eventet...
+        global_variables.simulation_clock.print_current_time_as_time_stamp()
+
         global_variables.ambulance.is_available = True
-        print("end of chain")
         print("\n")

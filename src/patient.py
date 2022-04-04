@@ -6,7 +6,8 @@ class Patient:
     properties = {
         'id': int,
         'triage_priority': string,
-        'centroid': int
+        'centroid': int,
+
     }
 
     def __init__(self, id, centroid, triage_priority):
