@@ -24,15 +24,15 @@ class AmbulanceToPatientArrival():
         # Writing to output file:
         global_variables.simulation_clock.write_time_stamp_to_file()
 
-        # if (self.patient.triage_priority == "yellow_or_green") and (
-        #         global_variables.simulation_clock.is_health_center_open(self.time)):
-        #     print("ITS OPEN! " + str(self.time))
-        #     next_event = AmbulanceToHealthCenterDeparture(self.time + treatment_time, self.patient)
-        #     global_variables.simulation_clock.write_hospital_of_health_center_to_file("health_center")
-        #     global_variables.nbr_of_patients_to_health_center += 1
-        # else:
-        next_event = AmbulanceToHospitalDeparture(self.time + treatment_time, self.patient)
-        global_variables.simulation_clock.write_hospital_of_health_center_to_file("hospital")
-        global_variables.nbr_of_patients_to_hospital += 1
+        if (self.patient.triage_priority == "yellow_or_green") and (
+                global_variables.simulation_clock.is_health_center_open(self.time)):
+            print("ITS OPEN! " + str(self.time))
+            next_event = AmbulanceToHealthCenterDeparture(self.time + treatment_time, self.patient)
+            global_variables.simulation_clock.write_hospital_of_health_center_to_file("health_center")
+            global_variables.nbr_of_patients_to_health_center += 1
+        else:
+            next_event = AmbulanceToHospitalDeparture(self.time + treatment_time, self.patient)
+            global_variables.simulation_clock.write_hospital_of_health_center_to_file("hospital")
+            global_variables.nbr_of_patients_to_hospital += 1
 
         return next_event

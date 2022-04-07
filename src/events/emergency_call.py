@@ -21,7 +21,7 @@ class EmergencyCall:
             global_variables.simulation_clock.set_start_time(self.time)
             global_variables.simulation_clock.print_current_time_as_time_stamp()
             time_from_call_to_ambulance_departure = global_variables.simulation_clock.calculate_time(
-                3)  # Tre minuter. Räknas ut som andel av ett dygn i calculate_time
+                7)  # 7 minuter. Detta är mediantiden från inkommande samtal till att ambulansen börjar köra
             global_variables.ambulance.is_available = False
 
             # Writing to output file:
@@ -34,6 +34,6 @@ class EmergencyCall:
         # För varje gång det returneras, lägger vi på 10 minuter så att det inte sker nya anrop konstant
         else:
             print("~~~~~~~~~~~~~~~~~ NEW EMERGENCY CALL QUEUED ~~~~~~~~~~~~~~~~~")
-            time_to_add = global_variables.simulation_clock.calculate_time(10)
+            time_to_add = global_variables.simulation_clock.calculate_time(1) # Kollar varje minut om ambulansen blivit ledig
             self.time += time_to_add
             return self
