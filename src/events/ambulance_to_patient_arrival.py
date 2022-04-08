@@ -2,7 +2,7 @@ from random import randint
 from events.ambulance_to_healthcenter_departure import AmbulanceToHealthCenterDeparture
 from events.ambulance_to_hospital_departure import AmbulanceToHospitalDeparture
 
-from src import global_variables
+import global_variables
 
 
 class AmbulanceToPatientArrival():
