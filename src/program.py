@@ -6,7 +6,7 @@ from events.eventlistheap import EventListHeap
 from random import randint
 
 from simulation_clock import SimulationClock
-from src import global_variables
+import global_variables
 
 
 def main():

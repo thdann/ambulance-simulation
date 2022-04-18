@@ -1,7 +1,7 @@
 from tkinter import EventType
 from events.ambulance_to_healthcenter_arrival import AmbulanceToHealthCenterArrival
 
-from src import utils, global_variables
+import utils, global_variables
 
 
 class AmbulanceToHealthCenterDeparture:

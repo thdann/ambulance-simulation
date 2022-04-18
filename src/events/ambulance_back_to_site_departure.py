@@ -1,5 +1,5 @@
 import global_variables
-from src.events.ambulance_back_to_site_arrival import AmbulanceBackToSiteArrival
+from events.ambulance_back_to_site_arrival import AmbulanceBackToSiteArrival
 
 
 class AmbulanceBackToSiteDeparture:

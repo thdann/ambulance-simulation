@@ -1,6 +1,6 @@
 from ambulance import Ambulance
 from simulation_clock import SimulationClock
-from src.waiting_queue import WaitingQueue
+from waiting_queue import WaitingQueue
 
 print("***************************** Global variables ****************************")
 

@@ -1,6 +1,5 @@
 from events.ambulance_to_hospital_arrival import AmbulanceToHospitalArrival
-
-from src import global_variables, utils
+import global_variables, utils
 
 
 class AmbulanceToHospitalDeparture:
